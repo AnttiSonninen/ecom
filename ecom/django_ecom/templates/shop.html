@@ -5,22 +5,28 @@
 </head>
 <body>
 
-	<h1>This is the shop</h1>
-	<ul>
-		<li><a href="http://www.twitter.com">Twitter</a></li>
-		<li><a href="http://www.google.fi">Google</a></li>
-	</ul>
+	<h1>This is your shopping cart</h1>
+	
+	<p>Number of products in cart: {{ all_items|length}} </p>
+	<p>Total price of cart: {{sum}} dollars</p>
 
+	<br><br>
 
 	<ul>
 		{% for product in all_items %}
-		<li>{{ product.name }} </li>
+		<li><form action="/deleteTodo/{{product.id}}/" style="display: inline;" method="post">{% csrf_token %}
+				<input type="submit" value="Remove from cart"/>
+		</form>
+		{{ product.name }}: {{product.price}} dollars
+
+
+		</li>
 		{% endfor %}
 	</ul>
 
 	<form action="/addTodo/" method="post">{% csrf_token %}
 		<input type="text" name="content"/>
-		<input type="submit" value="Add Product"/>
+		<input type="submit" value="Add to cart"/>
 	</form>
 </body>
 
