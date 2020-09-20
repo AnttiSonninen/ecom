@@ -3,5 +3,8 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def showwwShop(request):
-	return HttpResponse('Hello world yay')
+def showAbout(request):
+	return HttpResponse('Welcome to about page')
+
+def shopTemplate(request):
+	return render(request, 'shop.html')
