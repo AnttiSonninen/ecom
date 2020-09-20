@@ -5,3 +5,4 @@ from django.db import models
 class ShopProduct(models.Model):
 	name = models.TextField()
 	price = models.IntegerField(default=1)
+

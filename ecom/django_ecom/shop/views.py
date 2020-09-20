@@ -28,3 +28,19 @@ def deleteProduct(request, product_id):
 	item_to_delete = ShopProduct.objects.get(id=product_id) 	
 	item_to_delete.delete()
 	return HttpResponseRedirect('/shop/')
+
+def buyCart(request):
+	all_products = ShopProduct.objects.all()
+	sum = 0
+	for product in all_products:
+		sum += product.price	
+	return render(request, 'buy.html', 
+		{'all_items': all_products, 'sum': sum})
+
+def completed(request):
+	all_products = ShopProduct.objects.all()
+	sum = 0
+	for product in all_products:
+		sum += product.price	
+	return render(request, 'completed.html', 
+		{'all_items': all_products, 'sum': sum})	

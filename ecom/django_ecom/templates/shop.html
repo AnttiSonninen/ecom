@@ -28,6 +28,12 @@
 		<input type="text" name="content"/>
 		<input type="submit" value="Add to cart"/>
 	</form>
+
+	<form action="/buy/" style="display: inline;" method="post">{% csrf_token %}
+		<input type="submit" value="Buy items"/>
+	</form>
+
+
 </body>
 
 </html>

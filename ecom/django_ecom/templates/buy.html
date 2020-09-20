@@ -1,0 +1,11 @@
+<h1>Let's buy</h1>
+
+<p>Are you sure you want to buy these <em style="color: red; font-size: 40px">{{ all_items|length}}</em> products in cart? Total price is <em style="color: red; font-size: 40px">{{sum}}</em> dollars. Press button below to pay via stripe</p>
+
+
+	<form action="/completed/" style="display: inline;" method="post">{% csrf_token %}
+		<input type="submit" value="Confirm purchase"/>
+	</form>
+	<form action="/shop/" style="display: inline;" method="post">{% csrf_token %}
+		<input type="submit" value="Go back"/>
+	</form>
